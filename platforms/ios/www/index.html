@@ -18,8 +18,9 @@
     under the License.
 -->
 <html>
-    <head>
-        <!--
+
+<head>
+    <!--
         Customize this policy to fit your own app's needs. For more guidance, see:
             https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
         Some notes:
@@ -28,22 +29,69 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
-        <meta name="format-detection" content="telephone=no">
-        <meta name="msapplication-tap-highlight" content="no">
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-        <link rel="stylesheet" type="text/css" href="css/index.css">
-        <title>Hello World</title>
-    </head>
-    <body>
-        <div class="app">
-            <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
-            </div>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <title>Remembrall</title>
+</head>
+
+<body>
+
+    <section class="page" id="home">
+        <nav id="navbar-home">
+            <h1>Home</h1>
+            <h4 class="addBtn">Add</h4>
+            <!-- <a href="#" class="addBtn">Add</a> -->
+
+        </nav>
+        <div id="container">
+             <!-- holds ul -->
+             <ul class="list-container">
+                 
+             </ul>
+
         </div>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-    </body>
+
+        <div class="overlay">
+                <div class="modal">
+                    <h3>Delete Notifications</h3>
+                    <p>Are you sure you want to delete notification?</p>
+                    <a href="#" class="noBtn">No</a>
+                    <a href="#"class="yesBtn">Yes</a>
+                </div>
+            </div>
+
+    </section>
+    <section class="page" id="create-reminder">
+        <nav id="navbar-create">
+            <h4 class="cancelBtn">Cancel</h4>
+            <!-- <a href="#" class="cancelBtn">Cancel</a> -->
+            <h1>Create Reminder</h1>
+            <h4 class="saveBtn">Save</h4>
+            <!-- <a href="#" class="saveBtn">Save</a> -->
+        </nav>
+        <form action="">
+            <!-- <label for="title"></label>
+                <input type="text" id="title" autofocus required>
+                <label for="date"></label>
+                <input type="date" id="date"> -->
+            <label for="">Enter title and message for the reminder:</label>
+            <input type="text" id="title" placeholder="Title" />
+            <input type="text" id="message" placeholder="Message" /><br>
+            <label for="">Enter date and time to trigger reminder:</label>
+            <input type="date" id="date" />
+            <input type="time" id="time" />
+
+        </form>
+
+    </section>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script src="js/luxon.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    
+    
+</body>
+
 </html>

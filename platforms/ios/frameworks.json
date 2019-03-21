@@ -1,3 +1,4 @@
 {
-    "UserNotifications.framework": 1
+    "UserNotifications.framework": 1,
+    "AudioToolbox.framework": 1
 }

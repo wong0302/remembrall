@@ -34,6 +34,14 @@ module.exports = [
       "cordova.plugins.notification.local.core",
       "plugin.notification.local.core"
     ]
+  },
+  {
+    "id": "cordova-plugin-dialogs.notification",
+    "file": "plugins/cordova-plugin-dialogs/www/notification.js",
+    "pluginId": "cordova-plugin-dialogs",
+    "merges": [
+      "navigator.notification"
+    ]
   }
 ];
 module.exports.metadata = 
@@ -42,7 +50,8 @@ module.exports.metadata =
   "cordova-plugin-whitelist": "1.3.3",
   "cordova-plugin-device": "2.0.2",
   "cordova-plugin-app-event": "1.2.1",
-  "de.appplant.cordova.plugin.local-notification": "0.8.5"
+  "de.appplant.cordova.plugin.local-notification": "0.8.5",
+  "cordova-plugin-dialogs": "2.0.1"
 };
 // BOTTOM OF METADATA
 });
