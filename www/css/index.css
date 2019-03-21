@@ -28,25 +28,21 @@
     background-color: rgb(237, 239, 242);
  }
 
+
  nav{
     color: black;
     background-color: white;
-    height: 10%;
+    height: 10vh;
+    width: 100vw;
     border-bottom: 0.1px solid rgb(220, 224, 229);
     text-align: center;
     display: grid;
     grid-template-areas: "a b c";
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 2fr 1fr;
 }
 .addBtn{
     color: rgb(0,122,255);
     grid-area: c;
-    
-}
-
-.deleteBtn{
-    color: rgb(0,122,255);
-    
     
 }
 
@@ -65,14 +61,43 @@ nav>h1{
     grid-area: c;
 }
 
-.noBtn{
+.list-container{
+    padding: 0.5rem;
+    background-color: white;
+    border-bottom: 0.1px solid rgb(220, 224, 229);
+    list-style: none;
+    /* text-align: center; */
+    /* display: grid;
+    grid-template-areas: "a b";
+    grid-template-columns: 1fr 1fr; */
+}
+
+.title{
+    color: black;
+    /* grid-area: a; */
+}
+
+.deleteBtn{
+    color: rgb(0,122,255);
+    /* grid-area: b; */
+}
+
+form > input{
+    background-color: white;
+    padding: 1rem;
+    border: none;
+    width: 80vw;
+    margin-top: 1.5rem ;
+}
+
+/* .noBtn{
     color: rgb(0,122,255);
 }
 
 .yesBtn{
     color: rgb(0,122,255);
     border-left: 0.1px solid rgb(220, 224, 229);
-}
+} */
 
 .page{
     display: none;
@@ -83,53 +108,13 @@ nav>h1{
 }
 
 
-.overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    z-index: 100;
-    background: rgba(0, 0, 0, 0.8);
-    cursor: pointer;
-}
-
-.modal {
-    position: fixed;
-    z-index: 200;
-    top: 20%;
-    left: 20%;
-    right: 20%;
-    height: 30vh;
-    width: 70vw;
-    background-color: #e4e4e4;
-    padding: 0.5rem;
-    /* padding: 1rem 2rem 3rem 2rem; */
-    box-shadow: 2px 2px 2px rgb(0, 0 0);
-    border-radius: 10px;
-    text-align: center;
-    font-size: 1.411em;
-    transition: transform 1s;
-
-}
-.modal>p{
-    border-bottom: 0.1px solid rgb(220, 224, 229);
-}
-
-.modal>a{
-    max-width: 400px;
-}
 
 
 
 
 
-.off {
-    transform: translateY(-200%);
-}
 
-.on {
-    transform: translateY(0);
-}
+
+
+
 

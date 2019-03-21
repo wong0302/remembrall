@@ -29,6 +29,10 @@
     <feature name="Notification">
         <param name="ios-package" value="CDVNotification" />
     </feature>
+    <feature name="SplashScreen">
+        <param name="ios-package" value="CDVSplashScreen" />
+        <param name="onload" value="true" />
+    </feature>
     <name>remembrall</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
@@ -44,6 +48,8 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
+    <icon height="120" src="./res/icon/ios/icon-60@2x.png" />
+    <splash src="./res/screen/ios/Default@2x~iphone~anyany.png" width="58" />
     <allow-intent href="itms:*" />
     <allow-intent href="itms-apps:*" />
     <preference name="AllowInlineMediaPlayback" value="false" />

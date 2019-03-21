@@ -19,6 +19,10 @@
             {
               "xml": "<feature name=\"Notification\"><param name=\"ios-package\" value=\"CDVNotification\" /></feature>",
               "count": 1
+            },
+            {
+              "xml": "<feature name=\"SplashScreen\"><param name=\"ios-package\" value=\"CDVSplashScreen\" /><param name=\"onload\" value=\"true\" /></feature>",
+              "count": 1
             }
           ]
         }
@@ -39,6 +43,9 @@
       "PACKAGE_NAME": "ca.adumedia.wong0302.remembrall"
     },
     "cordova-plugin-dialogs": {
+      "PACKAGE_NAME": "ca.adumedia.wong0302.remembrall"
+    },
+    "cordova-plugin-splashscreen": {
       "PACKAGE_NAME": "ca.adumedia.wong0302.remembrall"
     }
   },
@@ -86,6 +93,14 @@
       "merges": [
         "navigator.notification"
       ]
+    },
+    {
+      "id": "cordova-plugin-splashscreen.SplashScreen",
+      "file": "plugins/cordova-plugin-splashscreen/www/splashscreen.js",
+      "pluginId": "cordova-plugin-splashscreen",
+      "clobbers": [
+        "navigator.splashscreen"
+      ]
     }
   ],
   "plugin_metadata": {
@@ -93,6 +108,7 @@
     "cordova-plugin-device": "2.0.2",
     "cordova-plugin-app-event": "1.2.1",
     "de.appplant.cordova.plugin.local-notification": "0.8.5",
-    "cordova-plugin-dialogs": "2.0.1"
+    "cordova-plugin-dialogs": "2.0.1",
+    "cordova-plugin-splashscreen": "5.0.2"
   }
 }

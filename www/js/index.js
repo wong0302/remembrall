@@ -1,7 +1,6 @@
 let app = {
   // Application Constructor
   pages: [],
-  //notifications: [],
 
   init: () => {
     document.addEventListener("deviceready", app.ready);
@@ -45,7 +44,6 @@ let app = {
     let listItem = document.createElement("li");
 
     let title = document.getElementById("title").value;
-    let message = document.getElementById("message").value;
     let date = document.getElementById("date").value;
 
     let h2 = document.createElement('h2');
@@ -56,7 +54,9 @@ let app = {
     listItem.appendChild(h2);
     listContainer.appendChild(listItem);
     deleteBtn = document.createElement("button");
+    deleteBtn.setAttribute("class", "deleteBtn");
     deleteBtn.textContent = "delete";
+    deleteBtn.addEventListener("click", app.showConfirm);
     listItem.appendChild(deleteBtn);
 
     console.log("li is", listContainer);
@@ -84,6 +84,7 @@ let app = {
     let inOneMin = new Date();
     inOneMin.setMinutes(inOneMin.getMinutes() + 1);
     let id = new Date().getMilliseconds();
+    //new Date((date + " " + time).replace(/-/g, "/")).getTime() - (7 * 24 * 60 * 60 * 1000);
     console.log(inOneMin);
     console.log(date, time);
     let DateTime = luxon.DateTime;
@@ -93,7 +94,6 @@ let app = {
     let noteOptions = {
       id: id,
       title: title,
-      text: message,
       at: inOneMin,
       badge: 1,
       data: {
@@ -116,7 +116,7 @@ let app = {
 
     //app.createReminderlist();
 
-   // cordova.plugins.notification.local.cancel(id, function () {
+    // cordova.plugins.notification.local.cancel(id, function () {
 
     //});
     cordova.plugins.notification.local.isPresent(id, function (present) {
@@ -146,7 +146,7 @@ let app = {
     let p = ev.currentTarget;
 
     navigator.notification.confirm("Are you sure you want to delete?", (responseIndex) => {
-      if(responseIndex === 2) { //confirm
+      if (responseIndex === 2) { //confirm
         // console.log("clicked on", responseIndex);
         // li = document.querySelectorAll('li');
         // li.forEach((item, index) => {
@@ -165,15 +165,15 @@ let app = {
     // console.log(id);
     // let buttons = ["Confirm", "Cancel"];
     // let p = ev.currentTarget;
-    
+
     // navigator.notification.confirm("Are you sure you want to delete?",
     //   (responseIndex) => {
     //     app.deleteReminder(p);
-      //   p.innerHTML =  buttons[responseIndex - 1];
-      // }, buttons)
+    //   p.innerHTML =  buttons[responseIndex - 1];
+    // }, buttons)
 
 
-     // navigator.notification.confirm(message, confirmCallback, [title], [buttonLabels])
+    // navigator.notification.confirm(message, confirmCallback, [title], [buttonLabels])
 
     //document.querySelector(".overlay").style.display = "block";
   },
@@ -188,38 +188,38 @@ let app = {
     cordova.plugins.notification.local.getAll(function (notifications) {
       console.log(notifications);
       notifications.forEach((note) => {
-    console.log("Note:", note);
-    let container = document.getElementById("container");
-    //container.innerHTML = ""; //empty page
-    //let notes = note,
-    //docFrag = document.createDocumentFragment();
-    let listContainer = document.querySelector(".list-container");
+        console.log("Note:", note);
+        let container = document.getElementById("container");
+        //container.innerHTML = ""; //empty page
+        //let notes = note,
+        //docFrag = document.createDocumentFragment();
+        let listContainer = document.querySelector(".list-container");
 
 
-    //console.log("This is the ID" + note.id);
-    //notes.forEach((note) => {
-    let listItem = document.createElement("li"),
-      title = document.createElement("h2"),
-      deleteBtn = document.createElement("button");
+        //console.log("This is the ID" + note.id);
+        //notes.forEach((note) => {
+        let listItem = document.createElement("li"),
+          title = document.createElement("h2"),
+          deleteBtn = document.createElement("button");
 
-    listItem.setAttribute("class", "list-item");
-    title.textContent = note.title;
-    title.setAttribute("class", "title");
-    deleteBtn.textContent = "delete";
-    deleteBtn.setAttribute("class", "deleteBtn");
-    deleteBtn.setAttribute("data-id", note.id); // use for yes button as well 
-    deleteBtn.addEventListener("click", app.showConfirm);
+        listItem.setAttribute("class", "list-item");
+        title.textContent = note.title;
+        title.setAttribute("class", "title");
+        deleteBtn.textContent = "delete";
+        deleteBtn.setAttribute("class", "deleteBtn");
+        deleteBtn.setAttribute("data-id", note.id); // use for yes button as well 
+        deleteBtn.addEventListener("click", app.showConfirm);
 
-    listItem.appendChild(title);
-    listItem.appendChild(deleteBtn);
-    listContainer.appendChild(listItem);
-  
+        listItem.appendChild(title);
+        listItem.appendChild(deleteBtn);
+        listContainer.appendChild(listItem);
 
-    
 
-    container.appendChild(listContainer);
-  })
-  })
+
+
+        container.appendChild(listContainer);
+      })
+    })
   },
 
   /*****************************   DELETE REMINDER  *******************************/
@@ -229,18 +229,18 @@ let app = {
     li = p.parentElement;
     li.remove(li.selectedIndex);
     let targetElement = p;
-      id = targetElement.getAttribute("data-id");
-      console.log("p in delete is", p);
+    id = targetElement.getAttribute("data-id");
+    console.log("p in delete is", p);
     cordova.plugins.notification.local.cancel(id, function () {
       //cordova.plugins.notification.local.on("clear", function(notification) {
-      alert("cleared");
+      //alert("cleared");
       // app.createReminderlist();
       //app.addNote();
       //   let container = document.getElementById("container");
       // container.innerHTML = "";
       //app.getNotification();
       //app.createReminderlist();
-
+      console.log("ID: " + id + " has been deleted");
 
     });
     // OLD 
@@ -264,13 +264,8 @@ let app = {
 
   },
 
-  getNotification: () => {
-    cordova.plugins.notification.local.getAll(function (notifications) {
-      console.log(notifications);
-      notifications.forEach((note) => {})
-      //app.notifications = notifications;
-    });
-  }
+
+  
 
 };
 
