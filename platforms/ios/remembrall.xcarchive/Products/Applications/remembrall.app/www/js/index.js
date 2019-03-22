@@ -58,7 +58,6 @@ let app = {
 
     let listContainer = document.querySelector(".list-container");
     let listItem = document.createElement("li");
-    
 
     let h2 = document.createElement('h2');
     h2.textContent = title;
@@ -71,6 +70,7 @@ let app = {
 
 
     listItem.appendChild(p);
+    //listItem.appendChild(noteOptions.data);
     listContainer.appendChild(listItem);
     deleteBtn = document.createElement("button");
     deleteBtn.setAttribute("class", "deleteBtn");
@@ -80,8 +80,6 @@ let app = {
 
     console.log("li is", listContainer);
 
-    
-// noteOptions.sort((a, b) => (a.at < b.at) ? 1 : -1);
     /**
      * Notification Object Properties - use it as a reference later on
      * id
